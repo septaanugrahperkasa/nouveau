@@ -1,0 +1,153 @@
+.account-container {
+  width: min(80rem, 80vw);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  font-size: min(4vmin, calc(0.7rem + 0.7vmax));
+}
+
+.account-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.account-menu-item {
+  padding: 1rem;
+  width: 10rem;
+  margin-bottom: 0.5rem;
+
+  &:first-child {
+    background: var(--soft-accent-color);
+    color: black;
+  }
+
+  &.sign-out,
+  &.settings {
+    cursor: pointer;
+    transition: 0.1s background linear;
+
+    &:hover {
+      background: var(--soft-accent-color);
+    }
+  }
+}
+
+.account-content {
+  flex: 1;
+  color: grey;
+}
+
+.order-table {
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-table-header {
+  text-transform: uppercase;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: auto;
+  grid-template-areas:
+  "col1 col2 col3 col4 col5";
+  gap: 1rem;
+  padding: 2rem 1rem;
+  background: rgba(249, 249, 249, 0.98);
+  display: none;
+
+  @media (min-width: 619px) {
+    display: grid;
+  }
+}
+
+.no-orders-message {
+  font-size: var(--standard-text-font-size);
+  line-height: var(--standard-line-height);
+  margin: 2rem 0;
+  text-align: center;
+  font-weight: 300;
+}
+
+.order-table-info {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  "col1 col2 col3" "col4 col5";
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1rem;
+  row-gap: 2rem;
+  padding: 2rem 1rem;
+  align-items: center;
+  border-top: 1px dashed var(--moderate-accent-color);
+
+  @media (min-width: 500px) {
+    border-top: none;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-areas:
+  "col1 col2 col3 col4 col5";
+  }
+}
+
+.order-details {
+  display: flex;
+  grid-area: full;
+  flex-direction: column;
+  gap: 2rem;
+  max-height: 0;
+  overflow: hidden;
+  padding-inline: 1rem;
+  transition: max-height 0.2s ease, padding 0.2s ease-in;
+}
+
+.show-details.order-details {
+  padding: 2rem 1rem;
+  border-top: 2px dashed var(--moderate-accent-color);
+}
+
+.order-item {
+  display: grid;
+  grid-template-areas: "image" "desc" "price";
+  gap: 1rem;
+  align-items: center;
+
+  @media (min-width: 500px) {
+    grid-template-columns: 1.5fr 2fr 1fr;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+}
+
+.order-item-thumbnail {
+  max-width: 10rem;
+}
+
+.order-item-brand {
+  font-weight: lighter;
+  font-size: 1.3rem;
+  margin-top: .5rem;
+  display: inline-block;
+}
+
+@media (max-width: 500px) {
+  .account-menu {
+    flex: 1 1 100%;
+    display: flex;
+  }
+}
+
+
+.show-details {
+  max-height: 1000px;
+}
+
+.order-item-details {
+  cursor: pointer;
+}

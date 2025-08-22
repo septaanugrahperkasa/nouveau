@@ -1,0 +1,88 @@
+.filter-group {
+  border: none;
+  padding-inline: 0;
+}
+
+.legend {
+  padding: 2rem 0 1rem;
+  color: var(--strong-accent-color);
+}
+
+.filters {
+  border-top: 1px solid rgb(212, 212, 212);
+  border-bottom: 1px solid rgb(212, 212, 212);
+  padding: 3rem 2vw;
+  font-size: var(--standard-text-font-size);
+}
+
+.filters-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.filters-filters, .filters-sort {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgb(134, 134, 134);
+  transition: 0.1s all linear;
+  cursor: pointer;
+  font-family: var(--serif-font);
+
+  &:hover {
+    color: #1f1f1f;
+  }
+}
+
+.price-highest, .price-lowest, .filters-active {
+  color: #252525;
+  font-weight: bold;
+}
+
+.filters-sort > svg {
+  transition: 0.3s all linear;
+}
+
+.price-lowest > svg {
+  transform: rotate(180deg);
+}
+
+.price-highest > svg {
+  transform: rotateX(0);
+}
+
+.filter-icons > svg {
+}
+
+.filters-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.2s all ease-in;
+
+  &.expanded {
+    padding-top: 3rem;
+    max-height: 250rem;
+  }
+}
+
+.filters-form {
+  display: flex;
+}
+
+.filters-container {
+  opacity: 0;
+  max-height: 0;
+  transition: 0.2s max-height ease-in-out, 0.1s opacity ease-in;
+
+  @media (min-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.displayed-filters {
+  opacity: 1;
+  max-height: 250rem;
+}

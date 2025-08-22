@@ -1,0 +1,22 @@
+.cart-icon-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.item-count {
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  font-weight: 500;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  background: rgb(82, 72, 57);
+  color: white;
+  width: 15px;
+  height: 14px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}

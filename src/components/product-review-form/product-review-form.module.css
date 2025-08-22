@@ -1,0 +1,19 @@
+.review-form-container {
+  grid-area: review-form;
+}
+
+.form-review {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  filter: brightness(110%);
+}
+
+.form-warning {
+  color: gray!important;
+  font-size: 1.3rem!important;
+}
+
+.ty-review-note {
+
+}

@@ -1,0 +1,431 @@
+/* product-card.module.css */
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  background-color: white;
+  overflow: hidden;
+}
+
+.product:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 85%;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.productImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.product:hover .productImage {
+  transform: scale(1.05);
+}
+
+.hoverActions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: all 0.25s ease;
+  opacity: 0;
+  transform: translateX(20px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.product:hover .iconButton {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger the appearance of buttons */
+.iconButton:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.iconButton:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.iconButton:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Elegant gold gradient for wishlist button */
+.wishlistButton {
+  background: linear-gradient(135deg, #d4af37, #f9d77e);
+  box-shadow: 0 6px 12px rgba(212, 175, 55, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.wishlistButton:hover {
+  background: linear-gradient(135deg, #c9a227, #fce392);
+}
+
+/* Active state for wishlist button */
+.wishlistButton.active {
+  background: linear-gradient(135deg, #c9a227, #fce392);
+}
+
+.wishlistButton .icon {
+  transition: fill 0.3s ease;
+}
+
+.wishlistButton.active .icon {
+  fill: black;
+}
+
+/* Wishlist animation */
+@keyframes saveAnimation {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.wishlistButton.animating {
+  animation: saveAnimation 1s ease;
+}
+
+/* Wishlist animated icon fill state */
+.wishlistButton.active .icon {
+  animation: fillStar 0.3s ease forwards;
+}
+
+@keyframes fillStar {
+  0% {
+    fill-opacity: 0.5;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+/* Adding additional visual feedback for wishlist state */
+.wishlistButton.active:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.wishlistButton.active.animating:before {
+  animation: ripple 0.8s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+}
+
+/* Elegant purple/violet gradient for cart button */
+.cartButton {
+  background: linear-gradient(135deg, #5d4a7c, #9682c8);
+  box-shadow: 0 6px 12px rgba(93, 74, 124, 0.35);
+}
+
+.cartButton:hover {
+  background: linear-gradient(135deg, #4a377a, #a994e0);
+}
+
+/* Loading state for cart button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cartButton.loading {
+  animation: pulse 1s infinite;
+  opacity: 0.8;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  background: linear-gradient(to bottom, #ffffff, #fcfcfc);
+  height: 130px;
+  position: relative;
+  border-top: 1px solid rgba(240, 240, 240, 0.8);
+}
+
+.productDetailsBrand {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #c59f5e;
+  margin: 0;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.productDetailsTitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0.7rem 0 0;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  /* Membatasi jumlah baris dan memberikan ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.6em; /* 2 baris * 1.4 line-height * 1.3rem font-size */
+}
+
+.productDetailsTitle:hover {
+  color: #c59f5e;
+}
+
+/* Wrapper untuk container harga agar dapat diposisikan di bagian bawah card */
+.priceWrapper {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1.5rem;
+  right: 1.5rem;
+}
+
+/* Container untuk price elements */
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* Current/discount price styling */
+.currentPrice {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ee4d2d;
+}
+
+/* Original price styling - crossed out and less prominent */
+.originalPrice {
+  font-size: 14px;
+  color: #9e9e9e;
+  text-decoration: line-through;
+}
+
+/* Badge styling */
+.salesBadge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #ee4d2d;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.discountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ee4d2d;
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Notification styling */
+.notification {
+  position: absolute;
+  top: 1rem;
+  right: 6rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease, fadeOut 0.3s ease 1.7s;
+  z-index: 20;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Quick action buttons styling */
+.quickActions {
+  display: none;
+  padding: 1rem;
+  gap: 0.5rem;
+  background-color: #f8f8f8;
+  border-top: 1px solid #eaeaea;
+}
+
+.actionButton {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addButton {
+  background-color: #5d4a7c;
+  color: white;
+}
+
+.addButton:hover {
+  background-color: #4a377a;
+}
+
+.removeButton {
+  background-color: #c9a227;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product {
+    border-radius: 10px;
+  }
+  
+  .imageContainer {
+    padding-bottom: 90%;
+  }
+  
+  .productDetails {
+    height: 130px;
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .productDetailsBrand {
+    font-size: 1.05rem;
+  }
+  
+  .productDetailsTitle {
+    font-size: 1.15rem;
+    max-height: 3.22em;
+  }
+  
+  .priceWrapper {
+    bottom: 1.5rem;
+  }
+  
+  .currentPrice {
+    font-size: 14px;
+  }
+  
+  .originalPrice {
+    font-size: 12px;
+  }
+  
+  .iconButton {
+    width: 4rem;
+    height: 4rem;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  
+  .quickActions {
+    display: flex;
+  }
+  
+  /* Fix button position for mobile */
+  .hoverActions {
+    right: 0; /* Ensure it stays on the right */
+  }
+}

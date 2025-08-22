@@ -1,0 +1,173 @@
+.button-container {
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  width: auto;
+  min-width: 120px;
+  background: black;
+  color: white;
+  font-family: var(--serif-font);
+  font-size: var(--standard-text-font-size);
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  border: 2px solid black;
+  transition: 0.2s all ease-in;
+  cursor: pointer;
+}
+
+.button-container:hover {
+  background-color: white;
+  color: black;
+}
+
+.basic-button {
+  /* Basic button inherits from button-container */
+}
+
+.inverted-button {
+  background: white;
+  color: black;
+}
+
+.inverted-button:hover {
+  background: black;
+  color: white;
+}
+
+.transparent-bg-button:hover {
+  background: transparent;
+}
+
+.button-container[disabled] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 3px solid rgba(195, 195, 195, 0.6);
+  border-radius: 50%;
+  border-top-color: #636767;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.underlined-wishlist-button {
+  border: none;
+  background: none;
+  color: black;
+  text-align: left;
+  padding: 0;
+  text-decoration: underline;
+  font-weight: normal;
+  width: auto;
+  min-width: auto;
+}
+
+.underlined-wishlist-button:hover {
+  background: transparent;
+}
+
+.underlined-over-image-button {
+  border: none;
+  background: none;
+  color: white;
+  text-align: left;
+  padding: 0;
+  text-decoration: underline;
+  font-size: var(--title-medium-font-size);
+  width: auto;
+  min-width: auto;
+}
+
+.underlined-over-image-button:hover {
+  background: transparent;
+  color: var(--strong-accent-color);
+}
+
+.underlined-home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  text-transform: none;
+  font-size: var(--standard-text-font-size);
+  font-family: var(--serif-font);
+  transition: all 0.2s ease;
+  min-width: 120px;
+  letter-spacing: 0.5px;
+}
+
+.underlined-home-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.arrow-icon {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.underlined-home-button:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+.underlined-auth {
+  border: none;
+  background: none;
+  color: black;
+  text-align: center;
+  padding: 0;
+  text-decoration: underline;
+  font-weight: normal;
+  width: auto;
+  min-width: auto;
+}
+
+.accented-button {
+  width: auto;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 3px 0 var(--moderate-accent-color);
+  color: var(--moderate-accent-color);
+  border: 1px solid var(--moderate-accent-color);
+  padding: 0.75rem 1.5rem;
+  font-size: var(--standard-text-font-size);
+  font-family: var(--serif-font);
+  cursor: pointer;
+  justify-self: end;
+  transition: all 0.1s linear;
+}
+
+.accented-button:hover {
+  background: var(--moderate-accent-color);
+  color: black;
+  transform: scale(1.05);
+  font-weight: 500;
+}

@@ -1,0 +1,35 @@
+.home-attributes-container {
+  padding: min(8rem, 10vmin) 0;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.attributes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  gap: 6em;
+
+  @media (min-width: 650px) {
+    flex-direction: row;
+    gap: unset;
+  }
+}
+
+.attribute {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.attribute-title {
+  font-size: var(--standard-text-font-size);
+  margin: 2rem 0 0;
+  font-weight: normal;
+}
+
+.attribute-desc {
+  color: gray;
+  font-size: var(--small-text-font-size);
+}

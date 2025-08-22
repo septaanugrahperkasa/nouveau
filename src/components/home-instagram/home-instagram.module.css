@@ -1,0 +1,25 @@
+.home-instagram-heading {
+  text-align: center;
+}
+
+.title {
+  margin: 0!important;
+}
+
+.subheading {
+  font-size: var(--standard-text-font-size);
+  margin-top: 1rem;
+  display: block;
+}
+
+.instagram-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.instagram-grid > * {
+  flex: 1 0 auto;
+  max-width: 32.8rem;
+}

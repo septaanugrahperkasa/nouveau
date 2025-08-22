@@ -1,0 +1,69 @@
+.home-blog-container {
+  padding: var(--standard-spacing) 0;
+  display: grid;
+  gap: var(--standard-spacing);
+}
+
+.home-blog-heading {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.subheading {
+  font-size: var(--standard-text-font-size);
+  display: block;
+  margin-top: 0.7rem;
+}
+
+.home-posts-container {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Memastikan setiap article card memiliki ukuran seragam */
+.home-posts-container > * {
+  flex: 1;
+  min-width: 0; /* Mencegah konten berlebih memaksa card mengembang */
+  max-width: calc(100% / 1); /* Pengaturan default untuk mobile */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Membatasi dimensi gambar dan memaksa rasio aspek konsisten */
+.home-posts-container :global(img) {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9; /* Mempertahankan rasio aspek yang konsisten */
+  max-height: 220px; /* Batasi tinggi maksimum gambar */
+}
+
+/* Pastikan konten artikel tidak terlalu lebar */
+.home-posts-container :global(.post-content) {
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 500px) {
+  .home-posts-container {
+    gap: 2rem;
+  }
+  
+  .home-posts-container > * {
+    max-width: calc(100% / 2); /* Maksimal 2 card per baris pada layar medium */
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-posts-container {
+    gap: 3rem;
+  }
+  
+  .home-posts-container > * {
+    max-width: calc(100% / 3); /* Maksimal 3 card per baris pada layar besar */
+  }
+}

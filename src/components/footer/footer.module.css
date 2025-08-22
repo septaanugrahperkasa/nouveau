@@ -1,0 +1,82 @@
+.footer {
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: var(--standard-spacing);
+  display: flex;
+  gap: var(--standard-spacing);
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  font-weight: 600; /* Lebih tegas, tapi tetap elegan */
+  margin: 0 0 6px; /* Mengatur jarak bawah agar subtitle lebih dekat */
+  font-size: var(--title-medium-font-size);
+  background: var(--linear-accent-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  line-height: 1.2; /* Menyesuaikan tinggi baris agar lebih rapat */
+
+  @media (min-width: 560px) {
+    align-self: start;
+  }
+}
+
+.footer-navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: var(--standard-text-font-size);
+  width: 100%;
+  text-align: center;
+
+  @media (min-width: 560px) {
+    flex-direction: row;
+    text-align: unset;
+  }
+}
+
+.footer-navigation-info, .footer-navigation-support {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitles {
+  font-size: var(--standard-text-font-size);
+  margin: 0 0 2rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  align-self: center;
+
+  @media (min-width: 560px) {
+    order: 1;
+    align-self: start;
+  }
+}
+
+.nav-social {
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  font-size: 2.5rem!important;
+
+  &:hover {
+    color: var(--strong-accent-color);
+  }
+}
+
+.nav-item {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 0;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    color: var(--strong-accent-color);
+  }
+}
+

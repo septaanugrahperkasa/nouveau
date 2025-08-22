@@ -1,0 +1,9 @@
+.products {
+  display: grid;
+  justify-content: center;
+  column-gap: 3rem;
+  row-gap: 6rem;
+  margin-inline: auto;
+  width: min(90rem, 100%);
+  grid-template-columns: repeat(auto-fill, min(26rem, 100%));
+}

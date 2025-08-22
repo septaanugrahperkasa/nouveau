@@ -1,0 +1,30 @@
+.header {
+  text-align: center;
+}
+
+.heading {
+  margin-bottom: min(9vmin, 1.4rem);
+}
+
+.subheading {
+  font-size: var(--small-text-font-size);
+  line-height: 140%;
+  max-width: 67ch;
+  display: inline-block;
+}
+
+.posts-container {
+  display: grid;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  margin-inline: auto;
+  width: min(90rem, 100%);
+  grid-template-columns: repeat(auto-fill, min(30rem, 100%));
+
+  @media (min-width: 648px) {
+    grid-template-columns: repeat(auto-fill, min(33rem, 100%));
+
+    column-gap: 4rem;
+  }
+}

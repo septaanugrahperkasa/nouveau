@@ -1,0 +1,23 @@
+.item-visual {
+  color: #333333;
+  margin-inline: calc(-1 * min(9vmin, 3rem));
+  margin-top: 2rem;
+}
+
+.item-image-container {
+  outline: none;
+  cursor: grab;
+  padding-inline: .7rem;
+}
+
+.item-video {
+  width: 100%;
+  height: 396px;
+  object-fit: cover;
+  view-transition-name: product-image;
+}
+
+.item-image {
+  object-fit: cover;
+  view-transition-name: product-image;
+}
